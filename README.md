@@ -1,6 +1,6 @@
 # [Tiara](https://ibe-uw.github.io/tiara/)
 
-Deep-learning-based approach for identification of eukaryotic sequences in the metagenomic data powered by [PyTorch](https://pytorch.org).  
+Deep-learning-based approach for identification of eukaryotic sequences in the metagenomic data powered by [PyTorch](https://pytorch.org).  [Modified by [Josh L. Espinoza](https://github.com/jolespin) for Python 3.9+ and stdin support]
 
 The sequences are classified in two stages:
 
@@ -18,7 +18,7 @@ For more information, please refer to our paper:
 
 ## Requirements
 
-- `Python >= 3.7, <=3.9`
+- `Python >= 3.7`
 - `numpy, biopython, torch, skorch, tqdm, joblib, numba`
 
 ## Installation
@@ -27,31 +27,8 @@ More detailed installation instructions can be found [here](docs/detailed-instal
 
 #### Using `pip`
 
-Run `pip install tiara`, preferably in a fresh environment.
-
-#### Using `conda`
-
-Run `conda install -c conda-forge tiara`, preferably in a fresh environment. 
-
-We recommend to use `mamba` instead of `conda` (it's faster).
-
-Unfortunately currently it does work only for python 3.7 and 3.8.
-
-#### Using setup.py
-
-##### Latest stable release
-
-- Download latest release from https://github.com/ibe-uw/tiara/releases.
-- Unzip/untar the archive.
-- Go to the directory.
-- Run `python setup.py install`.
-
-##### Latest developer version
-
 ```bash
-git clone https://github.com/ibe-uw/tiara.git
-cd tiara
-python setup.py install
+pip install -U https://github.com/jolespin/tiara-nal/releases/download/1.0.4rc1/tiara-1.0.4rc1.tar.gz
 ```
 
 #### Testing the installation

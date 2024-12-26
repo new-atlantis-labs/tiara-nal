@@ -8,9 +8,9 @@ with open("requirements.txt") as fh:
 
 setuptools.setup(
     name="tiara",
-    version="1.0.3",
-    description="A tool for classifying metagenomic data",
-    author="Michał Karlicki and Stanisław Antonowicz",
+    version="1.0.4rc1",
+    description="A tool for classifying metagenomic data [NAL mod]",
+    author="Michał Karlicki and Stanisław Antonowicz [NAL: Josh L. Espinoza]",
     author_email="stas.antonowicz@gmail.com",
     long_description=long_description,
     long_description_content_type="text/markdown",
