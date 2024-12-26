@@ -23,7 +23,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.7,<3.10",
+    python_requires=">=3.7",
     keywords="machine-learning computational-biology",
     install_requires=requirements,
 )
