@@ -135,21 +135,21 @@ def main(test=None):
             if not os.path.exists(directory) and directory:
                 os.makedirs(directory)
             if args.gzip:
-                with gzip.open(args.output + ".gz", "wt") as target:
+                with gzip.open(args.output + ".gz", "wt", encoding="utf-8") as target:
                     target.write(output)
                 print(f"Output saved to {args.output}.gz.")
                 with gzip.open(
-                    os.path.join(directory, "log_" + fname) + ".gz", "wt"
+                    os.path.join(directory, "log_" + fname) + ".gz", "wt", encoding="utf-8"
                 ) as target:
                     target.write(log)
                 print(
                     f"Log file saved to {os.path.join(directory, 'log_' + fname)}.gz."
                 )
             else:
-                with open(args.output, "w") as target:
+                with open(args.output, "w", encoding="utf-8") as target:
                     target.write(output)
                 print(f"Output saved to {args.output}.")
-                with open(os.path.join(directory, "log_" + fname), "w") as target:
+                with open(os.path.join(directory, "log_" + fname), "w", encoding="utf-8") as target:
                     target.write(log)
                 print(f"Log file saved to {os.path.join(directory, 'log_' + fname)}.")
         else:
@@ -170,11 +170,11 @@ def main(test=None):
                     fname = short_mapping[cls] + "_" + name
                     if args.gzip:
                         with gzip.open(
-                            os.path.join(directory, fname) + ".gz", "wt"
+                            os.path.join(directory, fname) + ".gz", "wt", encoding="utf-8"
                         ) as handle:
                             write_to_fasta(handle, grouped[short_mapping[cls]])
                     else:
-                        with open(os.path.join(directory, fname), "w") as handle:
+                        with open(os.path.join(directory, fname), "w", encoding="utf-8") as handle:
                             write_to_fasta(handle, grouped[short_mapping[cls]])
         print()
 
@@ -272,7 +272,7 @@ def perform_test():
         print("Classification statistics:")
         print(log)
         target_results = {}
-        with open(target_output_fpath, "r") as handle:
+        with open(target_output_fpath, "r", encoding="utf-8") as handle:
             next(handle)
             for line in handle:
                 desc, cls1, cls2 = line.strip().split("\t")

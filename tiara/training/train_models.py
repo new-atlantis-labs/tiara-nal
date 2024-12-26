@@ -50,7 +50,7 @@ def add_ones_matrix(mat, row, positions):
 def get_tfidf_repr(seqs, k, idf_vec):
     length = len(seqs)
     result = np.zeros((length, 4**k), dtype=np.float32)
-    for i, seq in tqdm.tqdm(enumerate(seqs), total=len(seqs)):
+    for i, seq in enumerate(seqs): 
         arr = []
         for pos in range(len(seq) - k + 1):
             try:
@@ -123,7 +123,7 @@ class MyNNet_2(nn.Sequential):
             nn.Dropout(dropout),
             nn.ReLU(inplace=True),
             nn.Linear(hid2, dim_out),
-            nn.Softmax(1),
+            nn.Softmax(dim=1)
         )
 
 
