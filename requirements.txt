@@ -1,7 +1,7 @@
-biopython~=1.78
-joblib~=0.17.0
-numba>=0.52.0rc3
-numpy~=1.19.4
-skorch~=0.9.0
-torch~=1.7.0
-tqdm~=4.54.0
+pyfastx
+joblib
+numba
+numpy>=1.17
+skorch>=0.9.0
+torch>=1.7.0,torch<2.0.0
+tqdm
