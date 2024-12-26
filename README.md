@@ -18,7 +18,7 @@ For more information, please refer to our paper:
 
 ## Requirements
 
-- `Python >= 3.7, <=3.9`
+- `Python >= 3.7`
 - `numpy, biopython, torch, skorch, tqdm, joblib, numba`
 
 ## Installation
@@ -33,15 +33,13 @@ Run `pip install tiara`, preferably in a fresh environment.
 
 Run `conda install -c conda-forge tiara`, preferably in a fresh environment. 
 
-We recommend to use `mamba` instead of `conda` (it's faster).
-
-Unfortunately currently it does work only for python 3.7 and 3.8.
+We recommend using `mamba` instead of `conda` (it's faster).
 
 #### Using setup.py
 
 ##### Latest stable release
 
-- Download latest release from https://github.com/ibe-uw/tiara/releases.
+- Download the latest release from https://github.com/ibe-uw/tiara/releases.
 - Unzip/untar the archive.
 - Go to the directory.
 - Run `python setup.py install`.
@@ -69,8 +67,8 @@ The sequences in the fasta file should be at least 3000 bases long (default valu
 
 It creates two files: 
 
- - out.txt, a tab-separated file with header `sequence id, first stage classification result, second stage classification result`.
- - log_out.txt, containing model parameters and classification summary.
+ - `out.txt`, a tab-separated file with header `sequence id, first stage classification result, second stage classification result`.
+ - `log_out.txt`, containing model parameters and classification summary.
 
 #### Advanced:
 
@@ -80,13 +78,13 @@ tiara -i sample_input.fasta -o out.txt --tf mit pla pro -t 4 -p 0.65 0.60 --prob
 
 In addition to creating the files above, it creates, in the folder where `tiara` is run,
 three files containing sequences from `sample_input.fasta` classified as 
-mitochondria, plastid and prokarya (`--tf mit pla pro` option).
+mitochondria, plastid, and prokarya (`--tf mit pla pro` option).
 
 The number of threads is set to 4 (`-t 4`) and probability cutoffs 
-in the first and second stage of classification are set to 0.65 and 0.6, respectively.
+in the first and second stages of classification are set to 0.65 and 0.6, respectively.
 
 The probabilities of belonging to individual classes are also written to 
-`out.txt`, thanks to `--probabilities` option.
+`out.txt`, thanks to the `--probabilities` option.
 
 For more usage examples, go [here](docs/usage.md).
 
@@ -100,23 +98,8 @@ Tiara is released under an open-source MIT license
 
 ### Version history:
 
-- `1.0.3` – added `pyproject.toml`, updated dependencies to `python<3.10`
- – unfortunately `tiara` doesn't work right now with 
- `python` newer than `3.9` due to `torch 1.7.0` compatibility issues. 
-  Added option to use gzipped fasta file as input (automatically identified by `.gz` suffix).
-- `1.0.2` – added `Python 3.9` compatibility, added an option to gzip the results. 
+- `1.0.3` – added `pyproject.toml`, updated dependencies to `python<3.11`. 
+  Added option to use gzipped fasta files as input (automatically identified by `.gz` suffix).
+- `1.0.2` – added compatibility with `Python 3.9`, added an option to gzip the results. 
   Added this README section.
 - `1.0.0`, `1.0.1` – initial releases.
-
-
-
-
-
-
-
-
-
-
-
-
-
