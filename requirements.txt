@@ -1,4 +1,4 @@
-pyfastx
+biopython
 joblib
 numba
 numpy>=1.17

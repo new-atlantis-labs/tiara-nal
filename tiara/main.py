@@ -160,7 +160,8 @@ def main(test=None):
             else:
                 directory = "."
             grouped = sort_type(results)
-            _, name = os.path.split(args.input)
+            # _, name = os.path.split(args.input)
+            name = "tiara"
             if "all" in args.to_fasta:
                 classes = list(short_mapping.keys())
             else:
@@ -304,9 +305,9 @@ def parse_arguments():
         "-i",
         "--input",
         metavar="input",
-        help="A path to a fasta file.",
+        default="stdin",
+        help="A path to a fasta file. [Default: stdin]",
         type=str,
-        required=True,
     )
     parser.add_argument(
         "-o",

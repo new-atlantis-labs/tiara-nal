@@ -1,6 +1,6 @@
 # [Tiara](https://ibe-uw.github.io/tiara/)
 
-Deep-learning-based approach for identification of eukaryotic sequences in the metagenomic data powered by [PyTorch](https://pytorch.org).  [Modified by [Josh L. Espinoza](https://github.com/jolespin) for Python 3.9+, PyFastx, and stdin support]
+Deep-learning-based approach for identification of eukaryotic sequences in the metagenomic data powered by [PyTorch](https://pytorch.org).  [Modified by [Josh L. Espinoza](https://github.com/jolespin) for Python 3.9+ and stdin support]
 
 The sequences are classified in two stages:
 
