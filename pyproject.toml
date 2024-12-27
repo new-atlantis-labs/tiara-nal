@@ -1,15 +1,17 @@
 [project]
 name = "tiara"
-version = "1.0.4rc1"
+version = "1.0.4rc2"
 authors = [
-  { name="Michał Karlicki" }, { name="Stanisław Antonowicz", email="stas.antonowicz@gmail.com" }
+  { name="Micha?? Karlicki" }, { name="Stanis??aw Antonowicz", email="stas.antonowicz@gmail.com" }
 ]
 maintainers = [{name = "Josh L. Espinoza", email = "jolespin@newatlantis.io"}]
 description = "A tool for classifying metagenomic data"
 readme = "README.md"
 requires-python = ">=3.7,<3.10"
 classifiers = [
+    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]

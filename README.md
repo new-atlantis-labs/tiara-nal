@@ -28,7 +28,7 @@ More detailed installation instructions can be found [here](docs/detailed-instal
 #### Using `pip`
 
 ```bash
-pip install -U https://github.com/jolespin/tiara-nal/releases/download/1.0.4rc1/tiara-1.0.4rc1.tar.gz
+pip install -U https://github.com/jolespin/tiara-nal/releases/download/1.0.4rc2/tiara-1.0.4rc2.tar.gz
 ```
 
 #### Testing the installation
@@ -71,7 +71,7 @@ For more usage examples, go [here](docs/usage.md).
 
 ## Citation 
 
-Michał Karlicki, Stanisław Antonowicz, Anna Karnkowska, Tiara: deep learning-based classification system for eukaryotic sequences, Bioinformatics, Volume 38, Issue 2, 15 January 2022, Pages 344–350, https://doi.org/10.1093/bioinformatics/btab672
+Micha?? Karlicki, Stanis??aw Antonowicz, Anna Karnkowska, Tiara: deep learning-based classification system for eukaryotic sequences, Bioinformatics, Volume 38, Issue 2, 15 January 2022, Pages 344???350, https://doi.org/10.1093/bioinformatics/btab672
 
 ## License
 
