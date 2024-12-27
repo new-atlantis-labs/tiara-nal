@@ -1,0 +1,57 @@
+{% set name = "tiara" %}
+{% set version = "1.0.4rc1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/jolespin/tiara-nal/releases/download/{{ version }}/tiara-{{ version }}.tar.gz
+  md5: 4fac9441ab9f810b2a97e8bedf7e55ec
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  entry_points:
+    - tiara = tiara.main:main
+    - tiara-test = tiara.test.test:test
+
+requirements:
+  host:
+    - python >=3.7,<3.10
+    - pip
+    - setuptools
+    - wheel
+  
+  run:
+    - python >=3.7,<3.10
+    - biopython
+    - joblib
+    - numba
+    - numpy >=1.17
+    - skorch >=0.9.0
+    - torch >=1.7.0,<2.0.0
+    - tqdm
+
+test:
+  imports:
+    - tiara
+  commands:
+    - tiara --help
+    - tiara-test
+
+about:
+  home: https://github.com/jolespin/tiara-nal
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: "Tiara: A tool for classifying metagenomic data"
+  description: |
+    Tiara is a machine-learning-based tool designed to classify and process
+    metagenomic data, providing researchers with insights into microbial ecology.
+  dev_url: https://github.com/jolespin/tiara-nal
+
+extra:
+  recipe-maintainers:
+    - jolespin
