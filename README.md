@@ -1,6 +1,6 @@
 # [Tiara](https://ibe-uw.github.io/tiara/)
 
-Deep-learning-based approach for identification of eukaryotic sequences in the metagenomic data powered by [PyTorch](https://pytorch.org).  [Modified by [Josh L. Espinoza](https://github.com/jolespin) for Python 3.9+, PyFastx, and stdin support]
+Deep-learning-based approach for identification of eukaryotic sequences in the metagenomic data powered by [PyTorch](https://pytorch.org).  [Modified by [Josh L. Espinoza](https://github.com/jolespin) for Python 3.9+ and stdin support]
 
 The sequences are classified in two stages:
 
@@ -18,8 +18,8 @@ For more information, please refer to our paper:
 
 ## Requirements
 
-- `Python >= 3.7`
-- `numpy, pyfastx, torch, skorch, tqdm, joblib, numba`
+- `Python >= 3.7,<3.10`
+- `numpy, biopython, torch, skorch, tqdm, joblib, numba`
 
 ## Installation
 
@@ -27,15 +27,9 @@ More detailed installation instructions can be found [here](docs/detailed-instal
 
 #### Using `pip`
 
-Run `pip install tiara`, preferably in a fresh environment.
-
-#### Using `conda`
-
-Run `conda install -c conda-forge tiara`, preferably in a fresh environment. 
-
-We recommend to use `mamba` instead of `conda` (it's faster).
-
-Unfortunately currently it does work only for python 3.7 and 3.8.
+```bash
+pip install -U https://github.com/jolespin/tiara-nal/releases/download/1.0.4rc2/tiara-1.0.4rc2.tar.gz
+```
 
 #### Testing the installation
 
@@ -45,7 +39,9 @@ After the installation, run `tiara-test` to see if the installation was successf
 
 #### Basic usage:
 ```bash
-tiara -i sample_input.fasta -o out.txt
+tiara -i input.fasta -o out.tsv
+
+cat input.fasta.gz | gzip -d | tiara -o out.tsv
 ```
 
 The sequences in the fasta file should be at least 3000 bases long (default value). We do not recommend classify sequences that are shorter than 1000 base pairs.
@@ -58,39 +54,28 @@ It creates two files:
 #### Advanced:
 
 ```bash
-tiara -i sample_input.fasta -o out.txt --tf mit pla pro -t 4 -p 0.65 0.60 --probabilities
+tiara -i input.fasta -o out.tsv --tf mit pla pro -t 4 -p 0.65 0.60 --probabilities
 ```
 
 In addition to creating the files above, it creates, in the folder where `tiara` is run,
-three files containing sequences from `sample_input.fasta` classified as 
+three files containing sequences from `input.fasta` classified as 
 mitochondria, plastid and prokarya (`--tf mit pla pro` option).
 
 The number of threads is set to 4 (`-t 4`) and probability cutoffs 
 in the first and second stage of classification are set to 0.65 and 0.6, respectively.
 
 The probabilities of belonging to individual classes are also written to 
-`out.txt`, thanks to `--probabilities` option.
+`out.tsv`, thanks to `--probabilities` option.
 
 For more usage examples, go [here](docs/usage.md).
 
 ## Citation 
 
-Michał Karlicki, Stanisław Antonowicz, Anna Karnkowska, Tiara: deep learning-based classification system for eukaryotic sequences, Bioinformatics, Volume 38, Issue 2, 15 January 2022, Pages 344–350, https://doi.org/10.1093/bioinformatics/btab672
+Micha?? Karlicki, Stanis??aw Antonowicz, Anna Karnkowska, Tiara: deep learning-based classification system for eukaryotic sequences, Bioinformatics, Volume 38, Issue 2, 15 January 2022, Pages 344???350, https://doi.org/10.1093/bioinformatics/btab672
 
 ## License
 
 Tiara is released under an open-source MIT license 
-
-### Version history:
-
-- `1.0.3` – added `pyproject.toml`, updated dependencies to `python<3.10`
- – unfortunately `tiara` doesn't work right now with 
- `python` newer than `3.9` due to `torch 1.7.0` compatibility issues. 
-  Added option to use gzipped fasta file as input (automatically identified by `.gz` suffix).
-- `1.0.2` – added `Python 3.9` compatibility, added an option to gzip the results. 
-  Added this README section.
-- `1.0.0`, `1.0.1` – initial releases.
-
 
 
 

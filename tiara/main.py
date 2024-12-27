@@ -137,21 +137,21 @@ def main(test=None):
             if args.gzip:
                 with gzip.open(args.output + ".gz", "wt") as target:
                     target.write(output)
-                print(f"Output saved to {args.output}.gz.")
+                print(f"Output saved to {args.output}.gz")
                 with gzip.open(
                     os.path.join(directory, "log_" + fname) + ".gz", "wt"
                 ) as target:
                     target.write(log)
                 print(
-                    f"Log file saved to {os.path.join(directory, 'log_' + fname)}.gz."
+                    f"Log file saved to {os.path.join(directory, 'log_' + fname)}.gz"
                 )
             else:
                 with open(args.output, "w") as target:
                     target.write(output)
-                print(f"Output saved to {args.output}.")
+                print(f"Output saved to {args.output}")
                 with open(os.path.join(directory, "log_" + fname), "w") as target:
                     target.write(log)
-                print(f"Log file saved to {os.path.join(directory, 'log_' + fname)}.")
+                print(f"Log file saved to {os.path.join(directory, 'log_' + fname)}")
         else:
             print(output)
         if args.to_fasta:
@@ -160,7 +160,8 @@ def main(test=None):
             else:
                 directory = "."
             grouped = sort_type(results)
-            _, name = os.path.split(args.input)
+            # _, name = os.path.split(args.input)
+            name = "tiara"
             if "all" in args.to_fasta:
                 classes = list(short_mapping.keys())
             else:
@@ -304,9 +305,9 @@ def parse_arguments():
         "-i",
         "--input",
         metavar="input",
-        help="A path to a fasta file.",
+        default="stdin",
+        help="A path to a fasta file. [Default: stdin]",
         type=str,
-        required=True,
     )
     parser.add_argument(
         "-o",

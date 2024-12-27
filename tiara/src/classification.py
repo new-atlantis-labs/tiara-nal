@@ -1,3 +1,4 @@
+import sys
 import gzip
 from typing import Dict, Union, List
 import warnings
@@ -105,12 +106,16 @@ class Classification:
         -------
             predictions: a list of lists containing SingleResult objects.
         """
-        if sequences_fname.endswith(".gz"):
-            with gzip.open(sequences_fname, "rt") as sequences_handle:
-                seqs = list(SimpleFastaParser(sequences_handle))
+        if sequences_fname == "stdin":
+            seqs = list(SimpleFastaParser(sys.stdin))
+            
         else:
-            with open(sequences_fname, "r") as sequences_handle:
-                seqs = list(SimpleFastaParser(sequences_handle))
+            if sequences_fname.endswith(".gz"):
+                with gzip.open(sequences_fname, "rt") as sequences_handle:
+                    seqs = list(SimpleFastaParser(sequences_handle))
+            else:
+                with open(sequences_fname, "r") as sequences_handle:
+                    seqs = list(SimpleFastaParser(sequences_handle))
         seqs = [x for x in seqs if len(x[1]) >= self.min_len]
 
         do = delayed(fun)
